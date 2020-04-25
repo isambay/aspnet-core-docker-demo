@@ -1,15 +1,15 @@
 trigger:
   branches:
-    include: 
+    include:
     - master
 variables:
   buildConfiguration: 'Release'
-  location: 'West US 2'
-  acrHostName: 'cswebappdocker004acr.azurecr.io'
-  acrName: 'cswebappdocker004acr'
-  rgName: 'cswebappdocker004-rg'
-  imageName: 'cswebappdocker004'
-  webAppName: 'cswebappdocker004'
+  location: 'East US'
+  acrHostName: 'e1webappdocker005acr.azurecr.io'
+  acrName: 'e1webappdocker005acr'
+  rgName: 'e1webappdocker005-rg'
+  imageName: 'e1webappdocker005'
+  webAppName: 'e1webappdocker005'
 
 stages:
 
@@ -30,7 +30,7 @@ stages:
         location: $(location)
         csmFile: '$(System.DefaultWorkingDirectory)/**/containerRegistry-template.json'
         overrideParameters: '-registryName "$(acrName)" -registryLocation "$(location)" -registrySku standard'
-  
+
     # Restore dependencies
     - task: DotNetCoreCLI@2
       displayName: 'dotnet restore'
